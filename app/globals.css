@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #000000;
+  --color-ink-soft: #3a3a3a;
+  --color-grey-600: #6a6a6a;
+  --color-grey-500: #8a8a8a;
+  --color-grey-400: #9a9a9a;
+  --color-grey-300: #b8b8b8;
+  --color-surface-hover: #f2f2f2;
+  --color-placeholder: #e8e8e8;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-cursive: 'Cedarville Cursive', cursive;
+}
+
+/* Landing letter reveal */
+@keyframes inkIn {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scroll cue + hint fade in */
+@keyframes cueIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Bouncing arrow on scroll cue */
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+/* Continuous little bounce on the featured clip art */
+@keyframes doodleBounce {
+  0%, 20%, 100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  10% {
+    transform: translateY(0) scale(1.14, 0.84);
+  }
+  45% {
+    transform: translateY(-28px) scale(0.92, 1.1);
+  }
+  70% {
+    transform: translateY(0) scale(1.1, 0.88);
+  }
+  85% {
+    transform: translateY(-8px) scale(0.96, 1.04);
+  }
+}
+
+/* Footprint step fade */
+@keyframes stepIn {
+  0% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.75;
+  }
+  62% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Base resets */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
