@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 export default function BackToWork() {
   const searchParams = useSearchParams();
   const filter = searchParams.get('filter');
-  const href = filter ? `/?section=work&filter=${filter}` : '/?section=work';
+  const href = filter ? `/work?filter=${filter}` : '/work';
 
   return (
     <Link

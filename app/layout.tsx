@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import SiteShell from '@/components/SiteShell';
 import './globals.css';
 
 const inter = Inter({
@@ -44,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           padding: 0,
         }}
       >
-        {children}
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
