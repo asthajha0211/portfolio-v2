@@ -61,7 +61,7 @@ function SectionHeading({ children }: { children: ReactNode }) {
   return (
     <h2
       style={{
-        fontSize: '32px',
+        fontSize: 'clamp(24px, 6vw, 32px)',
         fontWeight: 500,
         letterSpacing: '-0.5px',
         margin: '0 0 24px',
@@ -77,7 +77,7 @@ function SubHeading({ children }: { children: ReactNode }) {
   return (
     <h3
       style={{
-        fontSize: '22px',
+        fontSize: 'clamp(18px, 4.5vw, 22px)',
         fontWeight: 500,
         letterSpacing: '-0.3px',
         margin: '40px 0 16px',
@@ -154,7 +154,7 @@ function NumberedItem({ index, children }: { index: number; children: ReactNode 
 }
 
 function Divider() {
-  return <hr style={{ border: 'none', borderTop: '1px solid #e8e8e8', margin: '72px 0' }} />;
+  return <hr style={{ border: 'none', borderTop: '1px solid #e8e8e8', margin: 'clamp(40px, 10vw, 72px) 0' }} />;
 }
 
 /* ───────────────────────── data ───────────────────────── */
@@ -233,7 +233,7 @@ export default function TribeSwiggy() {
       <Reveal>
         <h1
           style={{
-            fontSize: '40px',
+            fontSize: 'clamp(28px, 7vw, 40px)',
             fontWeight: 500,
             letterSpacing: '-0.5px',
             margin: '0 0 10px',
@@ -452,7 +452,7 @@ export default function TribeSwiggy() {
           <p style={{ fontSize: '14px', lineHeight: 1.6, color: '#6a6a6a', margin: '0 0 20px' }}>
             A Spotify Wrapped, but for Swiggy users.
           </p>
-          <div className="grid gap-3 grid-cols-2 md:grid-cols-4">
+          <div className="grid gap-3 grid-cols-1 min-[380px]:grid-cols-2 md:grid-cols-4">
             {WRAPPED_METRICS.map((m) => (
               <div
                 key={m}

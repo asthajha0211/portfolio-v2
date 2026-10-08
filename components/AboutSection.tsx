@@ -12,23 +12,21 @@ export default function AboutSection() {
       <img
         src={about.illustrationSrc}
         alt={about.illustrationAlt}
+        className="opacity-[0.15] md:opacity-100 w-[58vw] max-w-[320px] md:w-[30vw] md:max-w-[420px]"
         style={{
           position: 'fixed',
           left: 0,
           bottom: 0,
           zIndex: 0,
-          width: '30vw',
-          maxWidth: '420px',
           height: 'auto',
-          display: 'block',
           pointerEvents: 'none',
         }}
       />
-      <div className="relative" style={{ zIndex: 1, textAlign: 'right' }}>
+      <div className="relative text-left sm:text-right" style={{ zIndex: 1 }}>
         <h1
           className="font-cursive"
           style={{
-            fontSize: '44px',
+            fontSize: 'clamp(30px, 8vw, 44px)',
             fontWeight: 400,
             lineHeight: 1.5,
             letterSpacing: 0,
@@ -39,7 +37,7 @@ export default function AboutSection() {
           {about.heading}
         </h1>
         <div
-          className="flex flex-col ml-auto"
+          className="flex flex-col ml-0 sm:ml-auto"
           style={{ gap: '20px', maxWidth: '62ch' }}
         >
           {about.paragraphs.map((text, i) => {
@@ -49,11 +47,11 @@ export default function AboutSection() {
                 <MarkdownProse
                   key={i}
                   content={text}
+                  className="text-left sm:text-right"
                   style={{
                     fontSize: '16px',
                     lineHeight: 1.75,
                     color: '#000',
-                    textAlign: 'right',
                     margin: 0,
                   }}
                 />
@@ -62,12 +60,12 @@ export default function AboutSection() {
             return (
               <p
                 key={i}
+                className="text-left sm:text-right"
                 style={{
                   fontSize: '16px',
                   lineHeight: 1.75,
                   color: '#000',
                   margin: 0,
-                  textAlign: 'right',
                   textWrap: 'pretty',
                 }}
               >

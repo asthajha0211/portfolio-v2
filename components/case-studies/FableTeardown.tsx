@@ -61,7 +61,7 @@ function SectionHeading({ children }: { children: ReactNode }) {
   return (
     <h2
       style={{
-        fontSize: '32px',
+        fontSize: 'clamp(24px, 6vw, 32px)',
         fontWeight: 500,
         letterSpacing: '-0.5px',
         margin: '0 0 24px',
@@ -77,7 +77,7 @@ function SubHeading({ children }: { children: ReactNode }) {
   return (
     <h3
       style={{
-        fontSize: '22px',
+        fontSize: 'clamp(18px, 4.5vw, 22px)',
         fontWeight: 500,
         letterSpacing: '-0.3px',
         margin: '40px 0 16px',
@@ -232,7 +232,7 @@ function BeforeAfter({
 }
 
 function Divider() {
-  return <hr style={{ border: 'none', borderTop: '1px solid #e8e8e8', margin: '72px 0' }} />;
+  return <hr style={{ border: 'none', borderTop: '1px solid #e8e8e8', margin: 'clamp(40px, 10vw, 72px) 0' }} />;
 }
 
 /* ───────────────────────── data ───────────────────────── */
@@ -375,7 +375,7 @@ export default function FableTeardown() {
       <Reveal>
         <h1
           style={{
-            fontSize: '40px',
+            fontSize: 'clamp(28px, 7vw, 40px)',
             fontWeight: 500,
             letterSpacing: '-0.5px',
             margin: '0 0 10px',
@@ -813,7 +813,7 @@ export default function FableTeardown() {
 
         {/* Wrapped metrics grid */}
         <div
-          className="grid gap-3 grid-cols-2 md:grid-cols-4"
+          className="grid gap-3 grid-cols-1 min-[380px]:grid-cols-2 md:grid-cols-4"
           style={{ margin: '28px 0 32px' }}
         >
           {[

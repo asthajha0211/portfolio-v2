@@ -32,7 +32,7 @@ export default function WorkSection({ initialFilter }: { initialFilter?: string 
         className="flex flex-wrap items-baseline justify-between gap-4"
         style={{ marginBottom: '28px' }}
       >
-        <h1 className="m-0" style={{ fontSize: '40px', fontWeight: 500, letterSpacing: '-0.5px' }}>
+        <h1 className="m-0" style={{ fontSize: 'clamp(28px, 7vw, 40px)', fontWeight: 500, letterSpacing: '-0.5px' }}>
           {pageData.work.heading}
         </h1>
         <div className="flex flex-wrap items-baseline" style={{ gap: '22px' }}>
@@ -61,13 +61,7 @@ export default function WorkSection({ initialFilter }: { initialFilter?: string 
         </div>
       </div>
 
-      <div
-        className="grid bg-white"
-        style={{
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '16px',
-        }}
-      >
+      <div className="grid bg-white grid-cols-1 sm:grid-cols-2 gap-4">
         {visible.map((p) => (
           <ProjectCard key={p.slug} project={p} activeFilter={activeFilter} />
         ))}

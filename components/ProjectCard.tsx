@@ -3,12 +3,9 @@ import { Project } from '@/data/types';
 
 export default function ProjectCard({ project, activeFilter }: { project: Project; activeFilter?: string }) {
   const filterParam = activeFilter && activeFilter !== 'all' ? `?filter=${activeFilter}` : '';
-  return (
-    <Link
-      href={`/work/${project.slug}${filterParam}`}
-      className="group block border-2 border-ink-soft bg-white hover:bg-surface-hover"
-      style={{ textDecoration: 'none', color: '#000' }}
-    >
+
+  const content = (
+    <>
       <div className="relative border-b-2 border-ink-soft">
         {project.image && !project.image.includes('placeholder') ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -91,6 +88,23 @@ export default function ProjectCard({ project, activeFilter }: { project: Projec
           </svg>
         </span>
       </div>
+    </>
+  );
+
+  const className = 'group block border-2 border-ink-soft bg-white hover:bg-surface-hover';
+  const style = { textDecoration: 'none' as const, color: '#000' };
+
+  if (project.externalUrl) {
+    return (
+      <a href={project.externalUrl} target="_blank" rel="noopener noreferrer" className={className} style={style}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={`/work/${project.slug}${filterParam}`} className={className} style={style}>
+      {content}
     </Link>
   );
 }

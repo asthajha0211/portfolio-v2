@@ -9,4 +9,5 @@ export interface Project {
   heroImageAlt?: string;
   date: string;
   body: string;
+  externalUrl?: string;
 }

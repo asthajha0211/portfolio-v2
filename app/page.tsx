@@ -8,10 +8,9 @@ import WorkSection from '@/components/WorkSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import FootprintLayer, { fireTrail, clearTrail } from '@/components/FootprintTrail';
-import { pageData } from '@/data/page';
 
-type Section = 'work' | 'about' | 'contact' | 'resume';
-const validSections: Section[] = ['work', 'about', 'contact', 'resume'];
+type Section = 'work' | 'about' | 'contact';
+const validSections: Section[] = ['work', 'about', 'contact'];
 
 function HomeContent() {
   const searchParams = useSearchParams();
@@ -53,10 +52,6 @@ function HomeContent() {
       setEntered(false);
       setLandKey((k) => k + 1);
       setMenuOpen(false);
-    } else if (key === 'resume') {
-      setEntered(true);
-      setSection('resume');
-      setMenuOpen(false);
     } else {
       setEntered(true);
       setSection(key as Section);
@@ -91,42 +86,6 @@ function HomeContent() {
         {section === 'work' && <WorkSection initialFilter={searchParams.get('filter') ?? undefined} />}
         {section === 'about' && <AboutSection />}
         {section === 'contact' && <ContactSection />}
-        {section === 'resume' && (
-          <section>
-            <h1
-              className="m-0"
-              style={{
-                fontSize: '40px',
-                fontWeight: 500,
-                letterSpacing: '-0.5px',
-                marginBottom: '20px',
-              }}
-            >
-              {pageData.resume.heading}
-            </h1>
-            <p
-              className="m-0"
-              style={{
-                fontSize: '17px',
-                lineHeight: 1.7,
-                maxWidth: '46ch',
-                marginBottom: '24px',
-              }}
-            >
-              {pageData.resume.description}
-            </p>
-            <a
-              href={pageData.resume.linkUrl}
-              style={{
-                fontSize: '17px',
-                textDecoration: 'underline',
-                textUnderlineOffset: '4px',
-              }}
-            >
-              {pageData.resume.linkText}
-            </a>
-          </section>
-        )}
       </main>
     </>
   );

@@ -5,14 +5,16 @@ import MarkdownProse from '@/components/MarkdownProse';
 import BackToWork from '@/components/BackToWork';
 import FableTeardown from '@/components/case-studies/FableTeardown';
 import TribeSwiggy from '@/components/case-studies/TribeSwiggy';
+import TapBondsTeardown from '@/components/case-studies/TapBondsTeardown';
 
 const CUSTOM_CASE_STUDIES: Record<string, () => React.ReactElement> = {
   'fable-teardown': () => <FableTeardown />,
   'tribe-swiggy': () => <TribeSwiggy />,
+  'tapbonds-teardown': () => <TapBondsTeardown />,
 };
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return projects.filter((p) => !p.externalUrl).map((p) => ({ slug: p.slug }));
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -37,7 +39,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           zIndex: 18,
           display: 'flex',
           alignItems: 'center',
-          padding: '0 48px',
+          padding: '0 clamp(20px, 5vw, 48px)',
         }}
       >
         <Suspense>
@@ -49,7 +51,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         style={{
           maxWidth: '1080px',
           margin: '0 auto',
-          padding: '112px 48px 96px',
+          padding: '112px clamp(20px, 5vw, 48px) 96px',
           minHeight: '100vh',
         }}
       >
@@ -60,7 +62,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <>
             <h1
               style={{
-                fontSize: '40px',
+                fontSize: 'clamp(28px, 7vw, 40px)',
                 fontWeight: 500,
                 letterSpacing: '-0.5px',
                 margin: '0 0 8px',
